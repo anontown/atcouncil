@@ -25,7 +25,7 @@ COPY lerna.json ./
 COPY packages/server/package.json packages/server/package-lock.json ./packages/server/
 RUN npx lerna bootstrap --ci --no-progress
 
-COPY schema.gql ./
+COPY schema.gql .eslintignore .eslintrc.js .prettierrc ./
 COPY packages ./packages
 RUN npx lerna run codegen --scope @anontown/server --include-filtered-dependencies \
   && npx lerna run build --scope @anontown/server
